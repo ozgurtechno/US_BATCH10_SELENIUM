@@ -9,9 +9,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.List;
 
-public class _05_FindByTagName {
+public class _05_FindByTagName extends DriverClass{
     public static void main(String[] args) {
-        WebDriver driver = DriverClass.getDriver();
+
         driver.get("https://www.amazon.com/");
 
         MyMethods.myWait(3);
@@ -36,8 +36,6 @@ public class _05_FindByTagName {
 //            System.out.println("label.getAttribute(\"id\") = " + label.getAttribute("id"));
 //        }
 
-        MyMethods.myWait(2);
-
-        driver.quit();
+        DriverClass.waitAndQuit();
     }
 }

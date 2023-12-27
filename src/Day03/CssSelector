@@ -1,0 +1,53 @@
+Css Selector
+- We use this locator when we are not able to locate an element by using previous locators
+- We can use any attribute of an element to locate it. We are not limited to id, name and classname
+- It gives us more flexibility
+- You can locate child and grand child element of an element(Sub element of another element)
+
+tagName[attributeName="valueOfTheAttribute"]
+
+input[aria-labelledby="label_3 sublabel_3_first"]
+
+<div id="username">
+
+    <span> Hello 1 </span>
+    <input class="firstname">
+    <span> Hello 2 </span>
+
+    <div>
+	    <img src="image1.png"/>
+	    <img src="image2.png"/>
+        <input type="text"/>
+    </div>
+
+</div>
+<label> Hello </label>
+
+div[id="username"]>span  --> Gives the first span child of div element. If div doesn't have any span child
+                            it throws NoSuchElement Exception
+div[id="username"]>div>img[src="image2.png"] --> Gives us img grand child if div element with src="image2.png" attribute
+div[id="username"]>span+span  --> Gives us 2nd span child of div element
+div[id="username"] input[type="text"]  --> It searches the entire family to find input element with type="text" attribute
+div[id="username"]>:nth-child(3)  --> Gives the 3rd child of div element. In this example <span> Hello 2 </span>
+div[id="username"]>span:nth-child(3) --> Gives the 3rd child of div element and that child must be a span
+div[id="username"]>:last-child  --> Gives the last child of an element. In this case div element
+div[id="username"]>:nth-last-child(2)  --> Gives the second child element from the end of div. In this case <span> Hello 2 </span>
+div[id="username"]>*     --> Gives all of the children of the div element
+
+Symbols
+>     -> immediate child
+space -> search in the entire family
++     -> sibling
+
+
+
+
+
+
+
+
+
+
+
+
+
