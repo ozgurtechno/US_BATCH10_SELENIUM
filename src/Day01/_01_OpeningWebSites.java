@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class _01_OpeningWebSites {
 
     public static void main(String[] args) throws InterruptedException {
+        // This is my note...
 
         WebDriver driver = new ChromeDriver(); // Creates a new chrome driver
 //        WebDriver driver1 = new SafariDriver();
