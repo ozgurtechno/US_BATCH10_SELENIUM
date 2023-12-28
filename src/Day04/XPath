@@ -1,0 +1,37 @@
+XPATH
+
+Pros
+-> Can locate any element you want. If you know Xpath you don't need other locators.
+-> It is the most efficient one
+-> Can locate any element with its visible text
+-> Can locate elements by their index. For example if there are multiple elements with the same locator we can say we want the 3rd one
+-> Can locate a parent element by using its child.
+
+Cons
+-> It works slower than the other locators. It slows down test execution. So it should be the last option
+
+//tagName[@attributeName="value"] --> Relative Xpath
+html/body/form/input  --> Absolute Xpath(Never use it. Because if a new element is added between html and the
+element you want to locate, your locator would not work)
+
+Interview Question: How many xpaths are there? Answer: 2 Relative and Absolute
+Interview Question: Which one do you use and why? Answer: Relative. Because if developers add a new element
+between your elements this locator wouldn't work
+
+<div id="username">
+
+    <span>Hello 1</span>
+    <input class="firstname">
+    <span> Hello 2 </span>
+
+    <div>
+	    <img src="image1.png"/>
+	    <img src="image2.png"/>
+        <input type="text"/>
+    </div>
+
+</div>
+<label> Hello </label>
+
+//input[@class="firstname"]  --> Gives the input element with a class attribute with the value of firstname
+//span[text()="Hello 1"] --> Gives the span element with Hello 1 visible text

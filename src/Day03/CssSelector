@@ -39,7 +39,11 @@ Symbols
 space -> search in the entire family
 +     -> sibling
 
+Starts with - Ends with- Contains
 
+button[data-original-title^="Compare"] -> Gives the button element that has data-original-title attribute which starts with Compare
+button[data-original-title$="Product"] -> Gives the button element that has data-original-title attribute which ends with Product
+button[data-original-title*="this"]  -> Gives the button element that has data-original-title attribute which contains with this
 
 
 
