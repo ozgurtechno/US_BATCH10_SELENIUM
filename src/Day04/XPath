@@ -20,9 +20,12 @@ between your elements this locator wouldn't work
 
 <div id="username">
 
-    <span>Hello 1</span>
+    <span class="Hello">Hello 1</span>
     <input class="firstname">
-    <span> Hello 2 </span>
+    <span class="Hello">Hello 2</span>
+    <span class="Hello">Hello 3</span>
+    <span class="Hello">Hello 4</span>
+    <span class="Hello">Hello 5</span>
 
     <div>
 	    <img src="image1.png"/>
@@ -33,5 +36,22 @@ between your elements this locator wouldn't work
 </div>
 <label> Hello </label>
 
-//input[@class="firstname"]  --> Gives the input element with a class attribute with the value of firstname
-//span[text()="Hello 1"] --> Gives the span element with Hello 1 visible text
+//input[@class="firstname"]                         --> Gives the input element with a class attribute with the value of firstname
+//span[text()="Hello 1"]                            --> Gives the span element with Hello 1 visible text
+//option[starts-with(@value,"I'm only using")]      --> Gives the option element with value attribute starts with "I'm only using"
+//option[ends-with(@value,"few days")]              --> Gives the option element with value attribute ends with "few days". Note: Most of the browsers don't support it
+//option[contains(@value,"month")]                  --> Gives the option element with value attribute that contains "month"
+//option[contains(text(),"month")]                  --> Gives the option element with text contains "month"
+//input[@type="radio" and @value="Business"]        --> Gives the input element that meets both conditions(type=radio, value=Business)
+//input[@type="radio" or @value="Business"]         --> -> Gives the input elements that meet either of the conditions
+//div[@id="username"]/span                          --> Gives the first span child of the div element(Doesn't look at the grand children. only children)
+//div[@id="username"]/span[text()="Hello 2"]        --> Gives the span child with text Hello 2 of div element
+//div[@id="username"]//img                          --> Gives the first img element
+//div[@id="username"]//img[@src="image2.png"]       --> Gives the img element with src=image2.png
+//div[@id="username"]/img                           --> Since div doesn't have any img child Selenium throws NoSuchElement Exception
+//div[@id="username"]//span/following-sibling::span --> Gives the second span element(first sibling of span element)
+//div[@id="username"]//span/following::span         --> Gives all the span elements after the first one(Frtom Hello 2 to Hello 5)
+//input[@class="firstname"]/..                      --> Gives us parent of input element
+//input[@class="firstname"]/parent::div             --> Gives us parent of input element
+//input[@class="firstname"]/../..                   --> Gives the grand parent of input element
+(//span[@class="Hello"])[3]                         --> Gives the 3rd span element
