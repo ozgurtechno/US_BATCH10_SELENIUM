@@ -1,0 +1,52 @@
+What have we used so far for wait?
+- Thread.sleep()
+-> It is a Java method (Not Selenium method).
+-> It stops the code execution for the specified amount of time no matter what.
+-> Thread.sleep(5000) stops the code for 5 seconds. It just waits. There is no conditions.
+
+-> Never use it in your final code. Because it makes your test execution longer. Don't tell anyone that you use it to make your code wait.
+
+----------------------------------------------------
+Waits in Selenium
+
+1) Page Load TimeOut
+
+    driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
+
+   It waits until your computer downloads all necessary files(HTML, Styling, Java Script code...) from the server.
+   If they are not downloaded in time, Selenium throws TimeOutException.
+   That means there is a problem with the server side or your internet connection
+
+2) Implicitly Wait
+
+    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+
+    It waits until your browser gets all the downloaded files and converts them into HTML codes.
+    It waits for all elements on the page
+    If the browser cannot convert them in specified amount of time Selenium throws TimeOutException.
+    That means your code is not compatible with that browser
+
+3) Explicitly Wait
+
+    WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(15));
+    wait.until(ExpectedConditions...)
+
+    It stops the code until a certain condition is met
+    Allows us to wait only for one element or for one specific condition is met
+
+    Expected Conditions are...
+
+    titleIs                         --> Waits until the title of the page becomes...
+    titleContains                   --> Waits until the contains some keyword
+    urlToBe                         --> Waits until the url becomes...
+    urlContains                     -->
+    visibilityOfElementLocated      --> Waits until the element with the given locator is visible.
+    invisibilityOfElementLocated    --> Waits until the element with the given locator is invisible.
+    elementToBeClickable            --> Waits until an element becomes clickable
+    elementToBeSelected             --> Waits until an element becomes selected
+    textToBe                        --> Waits until a text becomes...
+    alertIsPresent                  --> Waits until an alert pops up
+    visibilityOfAllElements         --> Waits until all elements with same locator are displayed on the page. Mostly used with findElements
+    numberOfElementsToBe            --> Waits until number of elements that have the same locator to be a specific number
+    numberOfElementsToBeLessThan    --> Waits until number of elements that have the same locator to be less than a specific number
+    numberOfElementsToBeMoreThan    --> Waits until number of elements that have the same locator to be more than a specific number
